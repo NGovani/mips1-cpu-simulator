@@ -13,7 +13,7 @@ RUN_TEST() {
     then
         echo $6 | $SIM tbench_src/test_bins/$TEST_ID.bin
     else
-        $SIM tbench_src/test_bins/$TEST_ID.bin
+        $SIM tbench_src/$TEST_ID.bin
     fi
     EC=$?
     if [ $EC -eq $EXPECTED_OUTCOME ]
