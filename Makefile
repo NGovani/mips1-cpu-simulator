@@ -1,15 +1,8 @@
-#simulator: main.o MIPS_instructions.o
-#	g++ sim_src/main.o sim_src/MIPS_instructions.o -o bin/mips_simulator
-
-#MIPS_instructions.o: sim_src/MIPS_instructions.cpp
-#	g++ --std=c++11 -c sim_src/MIPS_instructions.cpp -o sim_src/MIPS_instructions.o
-
 simulator: main.o simulator.o memoryMap.o registers.o
+	mkdir -p bin
 	g++ sim_src/main.o sim_src/simulator.o sim_src/memoryMap.o sim_src/registers.o -o bin/mips_simulator
 
 testbench:
-	make simulator
-	chmod u+x bin/mips_testbench
 
 testbench_windows:
 	make simulator
